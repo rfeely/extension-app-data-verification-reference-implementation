@@ -101,9 +101,9 @@ Log in with your Docusign developer credentials and create a new app.
 This reference implementation uses mock data to showcase how data can be verified against a database. [Test your connections](https://developers.docusign.com/extension-apps/build-an-extension-app/test/) using the sample data in [sampleData.ts](src/constants/sampleData.ts)
 
 Request bodies much match the appropriate [action contract](https://developers.docusign.com/extension-apps/extension-app-reference/app-manifest-reference/action/):
-* [Bank account owner verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/bank-account-owner-verification/)
-* [Bank account verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/bank-account-verification/)
-* [Business FEIN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/business-fein-verification/)
-* [Email address verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/email-address-verification/)
-* [Phone verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/phone-verification/)
-* [SSN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/ssn-verification/)
+* [Bank account owner verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/bank-account-owner-verification/#request)
+* [Bank account verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/bank-account-verification/#request)
+* [Business FEIN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/business-fein-verification/#request)
+* [Email address verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/email-address-verification/#request)
+* [Phone verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/phone-verification/#request)
+* [SSN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/ssn-verification/#request)
