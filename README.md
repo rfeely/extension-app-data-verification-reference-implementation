@@ -95,6 +95,15 @@ Replace `<PROXY_BASE_URL>` in your manifest.json file with the ngrok forwarding 
 ### 2. Navigate to the Docusign [Developer Console](https://devconsole.docusign.com/)
 Log in with your Docusign developer credentials and create a new app.
 ### 3. Upload your manifest and create the data verification app
-[Create your extension app](https://developers.docusign.com/extension-apps/build-an-extension-app/create/) and [test your connections](https://developers.docusign.com/extension-apps/build-an-extension-app/test/).
+[Create your extension app](https://developers.docusign.com/extension-apps/build-an-extension-app/create/)
 
-This reference implementation uses mock data to showcase how data can be verified against a database. Test your data verification app using the sample databases in [sampleData.ts](src/constants/sampleData.ts)
+## Test the extension app
+This reference implementation uses mock data to showcase how data can be verified against a database. [Test your connections](https://developers.docusign.com/extension-apps/build-an-extension-app/test/) using the sample data in [sampleData.ts](src/constants/sampleData.ts)
+
+Request bodies much match the appropriate [action contract](https://developers.docusign.com/extension-apps/extension-app-reference/app-manifest-reference/action/):
+* [Bank account owner verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/bank-account-owner-verification/)
+* [Bank account verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/bank-account-verification/)
+* [Business FEIN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/business-fein-verification/)
+* [Email address verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/email-address-verification/)
+* [Phone verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/phone-verification/)
+* [SSN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/ssn-verification/)
