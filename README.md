@@ -12,7 +12,7 @@ This reference implementation models six data verification use cases:
 ### 1. Clone the repository
 Run the following command to clone the repository:
 ```bash
-git clone https://github.com/docusign/extension-app-file-archive-reference-implementation.git
+git clone https://github.com/docusign/extension-app-file-data-verification-implementation.git
 ```
 
 ### 2. Generate secret values
@@ -92,8 +92,8 @@ Replace `<PROXY_BASE_URL>` in your manifest.json file with the ngrok forwarding 
 - `connections.params.customConfig.tokenUrl`
 - `connections.params.customConfig.authorizationUrl`
 - `actions.params.uri`
-### 2. Navigate to the DocuSign [Developer Console](https://devconsole.docusign.com/)
-Log in with your DocuSign developer credentials and create a new app.
+### 2. Navigate to the Docusign [Developer Console](https://devconsole.docusign.com/)
+Log in with your Docusign developer credentials and create a new app.
 ### 3. Upload your manifest and create the data verification app
 [Create your extension app](https://developers.docusign.com/extension-apps/build-an-extension-app/create/) and [test your connections](https://developers.docusign.com/extension-apps/build-an-extension-app/test/).
 

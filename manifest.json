@@ -21,7 +21,7 @@
   "connections": [
     {
       "name": "authentication",
-      "description": "secure connection to the file archive proxy",
+      "description": "secure connection to the data verification proxy",
       "type": "oauth2",
       "params": {
         "provider": "CUSTOM",
