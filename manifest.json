@@ -1,0 +1,145 @@
+{
+  "name": "Data Verification App",
+  "description": {
+    "short": "App for data verification",
+    "long": "This app is designed to allow for users to verify data"
+  },
+   "icon": {
+    "data": "PHN2ZyB3aWR0aD0iNDAzIiBoZWlnaHQ9IjQwMyIgdmlld0JveD0iMCAwIDQwMyA0MDMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00MDIuMjYxIDAuNTY4ODQ4SDAuMjYwNzQyVjQwMi41NjlINDAyLjI2MVYwLjU2ODg0OFoiIGZpbGw9IiNENUZGMDAiLz4KPHBhdGggZD0iTTM0Ni4zOTEgMzA3LjY4OUg1Ni4wNjY5VjM0Ni43NTdIMzQ2LjM5MVYzMDcuNjg5WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTIwMS4yODIgMjg1LjMxMUwyMjguOTI1IDI1Ny43MjJMMzEyLjk1OCAxNzMuNjM2TDI4NC45OTkgMTQ1LjczTDIyMC44MTYgMjA5Ljk2NlY1MC43OTgySDE4MS42OTZMMTgxLjc0OCAyMDkuOTY2TDExNy41MTMgMTQ1LjczTDg5LjYwNjkgMTczLjYzNkwxNzMuNjQgMjU3LjcyMkwyMDEuMjgyIDI4NS4zMTFaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K",
+    "mediaType": "image/png"
+  },
+  "screenshots": [],
+  "publisher": {
+    "name": "John Doe",
+    "email": "john.doe@gmail.com",
+    "phone": "800-867-5309",
+    "website": "www.johndoe.com"
+  },
+  "termsOfServiceUrl": "www.johndoe.com/tos",
+  "privacyUrl": "www.johndoe.com/privacy",
+  "supportUrl": "www.johndoe.com/support",
+  "connections": [
+    {
+      "name": "authentication",
+      "description": "secure connection to the file archive proxy",
+      "type": "oauth2",
+      "params": {
+        "provider": "CUSTOM",
+        "scopes": [],
+        "clientId": "<CLIENT_ID>",
+        "clientSecret": "<CLIENT_SECRET>",
+        "customConfig": {
+          "profile": {
+            "url": "<PROXY_BASE_URL>/api/oauth/userinfo",
+            "httpMethod": "GET",
+            "idKey": "sub",
+            "emailKey": "email"
+          },
+          "tokenUrl": "<PROXY_BASE_URL>/api/oauth/token",
+          "authorizationUrl": "<PROXY_BASE_URL>/api/oauth/authorize",
+          "authorizationParams": {
+            "access_type": "offline",
+            "prompt": "consent"
+          },
+          "authorizationMethod": "header",
+          "scopeSeparator": " ",
+          "requiredScopes": []
+        }
+      }
+    }
+  ],
+  "extensions": [
+    {
+      "name": "My Bank Account Owner Verification Extension",
+      "description": "using to verify bank account owner",
+      "template": "Verify.Version1.BankAccountOwner",
+      "actionReferences": ["My Bank Account Owner Verification Action"]
+    },
+    {
+      "name": "My Bank Account Verification Extension",
+      "description": "using to verify bank account",
+      "template": "Verify.Version3.BankAccount",
+      "actionReferences": ["My Bank Account Verification Action"]
+    },
+    {
+      "name": "My Email Verification Extension",
+      "description": "using to verify email",
+      "template": "Verify.Version1.Email",
+      "actionReferences": ["My Email Verification Action"]
+    },
+    {
+      "name": "My Business FEIN Verification Extension",
+      "description": "using to verify Business FEIN",
+      "template": "Verify.Version1.BusinessEntity",
+      "actionReferences": ["My Business FEIN Verification Action"]
+    },
+    {
+      "name": "My Phone Verification Extension",
+      "description": "using to verify phone number",
+      "template": "Verify.Version1.PhoneNumber",
+      "actionReferences": ["My Phone Verification Action"]
+    },
+    {
+      "name": "My SSN Verification Extension",
+      "description": "using to verify SSN",
+      "template": "Verify.Version2.SocialSecurityNumber",
+      "actionReferences": ["My SSN Verification Action"]
+    }
+  ],
+  "actions": [
+    {
+      "name": "My Bank Account Owner Verification Action",
+      "description": "something about verifying with a proxy",
+      "template": "Verify.Version1.BankAccountOwner",
+      "connectionsReference": "authentication",
+      "params": {
+        "uri": "<PROXY_BASE_URL>/api/verify/bankAccountOwner"
+      }
+    },
+    {
+      "name": "My Bank Account Verification Action",
+      "description": "something about verifying with a proxy",
+      "template": "Verify.Version3.BankAccount",
+      "connectionsReference": "authentication",
+      "params": {
+        "uri": "<PROXY_BASE_URL>/api/verify/bankAccount"
+      }
+    },
+    {
+      "name": "My Email Verification Action",
+      "description": "something about verifying with a proxy",
+      "template": "Verify.Version1.Email",
+      "connectionsReference": "authentication",
+      "params": {
+        "uri": "<PROXY_BASE_URL>/api/verify/email"
+      }
+    },
+    {
+      "name": "My Business FEIN Verification Action",
+      "description": "something about verifying with a proxy",
+      "template": "Verify.Version1.BusinessEntity",
+      "connectionsReference": "authentication",
+      "params": {
+        "uri": "<PROXY_BASE_URL>/api/verify/businessFEIN"
+      }
+    },
+    {
+      "name": "My Phone Verification Action",
+      "description": "something about verifying with a proxy",
+      "template": "Verify.Version1.PhoneNumber",
+      "connectionsReference": "authentication",
+      "params": {
+        "uri": "<PROXY_BASE_URL>/api/verify/phone"
+      }
+    },
+    {
+      "name": "My SSN Verification Action",
+      "description": "something about verifying with a proxy",
+      "template": "Verify.Version2.SocialSecurityNumber",
+      "connectionsReference": "authentication",
+      "params": {
+        "uri": "<PROXY_BASE_URL>/api/verify/ssn"
+      }
+    }
+  ]
+}
