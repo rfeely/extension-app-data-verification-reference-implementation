@@ -1,10 +1,22 @@
 import { Router } from 'express';
 
 import Paths from '../constants/paths';
-import { verifyBankAccountOwner, verifyBankAccount, verifyEmail, verifyBusinessFEIN, verifyPhoneNumber, verifySSN } from '../services/dataVerification.service';
+import { verifyBankAccountOwner } from '../services/bankAccountOwnerVerification.service'
+import { verifyBankAccount } from '../services/bankAccountVerification.service';
+import { verifyEmail } from '../services/emailVerification.service';
+import { verifyBusinessFEIN } from '../services/businessFeinVerification.service';
+import { verifyPhoneNumber } from '../services/phoneVerification.service';
+import { verifySSN } from '../services/ssnVerification.service';
 import { expressjwt as jwt } from 'express-jwt';
 import { checkSchema } from 'express-validator';
-import { bankAccountOwnerBody, bankAccountBody, emailBody, businessFEINBody, phoneNumberBody, ssnBody } from '../validationSchemas/dataVerification';
+import {
+  bankAccountOwnerBody,
+  bankAccountBody,
+  emailBody,
+  businessFEINBody,
+  phoneNumberBody,
+  ssnBody
+} from '../validationSchemas/dataVerification';
 import checkValidationErrors from '../middleware/checkValidationErrors';
 import env from '../env';
 

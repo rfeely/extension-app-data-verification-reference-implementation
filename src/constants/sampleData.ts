@@ -4,10 +4,22 @@ export const SAMPLE_BANK_ACCOUNTS = [
   { accountNumber: "1111111111", accountType: "savings", routingNumber: "222222222", firstName: "Nora", lastName: "Bentley" }
 ];
 
+export const SAMPLE_EMAIL_DATABASE = [
+  { email: "eliza.monroe@gmail.com" },
+  { email: "theo.clarkson@gmail.com"},
+  { email: "nora.bentley@gmail.com"}
+]
+
 export const SAMPLE_BUSINESS_DATABASE = [
-  { businessName: "Business1", fein: "11-1111111" },
-  { businessName: "Business2", fein: "12-3456789"},
-  { businessName: "Business3", fein: "98-7654321"}
+  { businessName: "VistaPeak Ventures", fein: "11-1111111" },
+  { businessName: "SilverLining Solutions", fein: "12-3456789"},
+  { businessName: "EchoPoint Enterprises", fein: "98-7654321"}
+]
+
+export const SAMPLE_PHONE_DATABASE = [
+  { phoneNumber: "1234567890" },
+  { phoneNumber: "0987654321"},
+  { phoneNumber: "1111111111"}
 ]
 
 export const SAMPLE_SSN_DATABASE = [
