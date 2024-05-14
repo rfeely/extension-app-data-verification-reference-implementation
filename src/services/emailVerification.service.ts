@@ -19,7 +19,7 @@ export const verifyEmail = (req: IReq<EmailBody>, res: IRes) => {
     // Check if the phone number exists in the database
     const emailFound = SAMPLE_EMAIL_DATABASE.find(person => person.email === email);
     if (!emailFound) {
-        throw new Error("No match found for provided phone number details");
+        throw new Error("No match found for provided email details");
     }
 
     const result: EmailResponse = { verified: true };
