@@ -92,7 +92,6 @@ In this example, the `Forwarding` address to copy is `https://bbd7-12-202-171-35
 ## Create an extension app
 ### 1. Prepare your app manifest
 Choose a manifest from the [manifests](/manifests/) folder based on the appropriate data verification use case. Replace `<PROXY_BASE_URL>` in your .manifest.json file with the ngrok forwarding address in the following sections:
-- `connections.params.customConfig.profile.url`
 - `connections.params.customConfig.tokenUrl`
 - `connections.params.customConfig.authorizationUrl`
 - `actions.params.uri`
