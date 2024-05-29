@@ -16,7 +16,7 @@ export const verifyEmail = (req: IReq<EmailBody>, res: IRes) => {
         throw new Error("Invalid email format.");
     }
 
-    // Check if the phone number exists in the database
+    // Check if the email exists in the database
     const emailFound = SAMPLE_EMAIL_DATABASE.find(person => person.email === email);
     if (!emailFound) {
         throw new Error("No match found for provided email details");
