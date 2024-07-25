@@ -24,7 +24,8 @@ export const businessFEINBody: Schema = {
 };
 
 export const phoneNumberBody: Schema = {
-  phoneNumber: { isString: true }
+  phoneNumber: { isString: true },
+  region: { isString: true }
 };
 
 export const ssnBody: Schema = {

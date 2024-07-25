@@ -59,6 +59,7 @@ export interface PhoneNumberResponse {
 }
 
 export interface PhoneNumberBody {
+  region: string;
   phoneNumber: string;
 }
 

@@ -142,7 +142,8 @@ Request bodies much match the appropriate [action contract](https://developers.d
 * [Phone verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/phone-verification/#request) example JSON request body:
   ```
   {
-    "phoneNumber": "1234567890"
+    "phoneNumber": "1234567890",
+    "region": "1"
   }
   ```
 * [SSN verification](https://developers.docusign.com/extension-apps/extension-app-reference/action-contracts/ssn-verification/#request) example JSON request body:

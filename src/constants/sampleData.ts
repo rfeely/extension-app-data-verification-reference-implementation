@@ -17,9 +17,9 @@ export const SAMPLE_BUSINESS_DATABASE = [
 ]
 
 export const SAMPLE_PHONE_DATABASE = [
-  { phoneNumber: "1234567890" },
-  { phoneNumber: "0987654321"},
-  { phoneNumber: "1111111111"}
+  { region: "1", phoneNumber: "1234567890" },
+  { region: "1", phoneNumber: "0987654321"},
+  { region: "1", phoneNumber: "1111111111"}
 ]
 
 export const SAMPLE_SSN_DATABASE = [
