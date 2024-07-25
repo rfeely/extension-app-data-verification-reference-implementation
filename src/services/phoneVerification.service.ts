@@ -3,21 +3,34 @@ import { SAMPLE_PHONE_DATABASE } from '../constants/sampleData';
 import { IReq, IRes } from '../utils/types';
 
 export const verifyPhoneNumber = (req: IReq<PhoneNumberBody>, res: IRes) => {
-  const { phoneNumber } = req.body;
+  const { region, phoneNumber } = req.body;
 
   try {
       // Normalize the phone number by removing dashes and spaces
       const normalizedPhoneNumber = phoneNumber.replace(/[-\s]/g, '');
 
-      // Regular expression to match US phone number format after normalization
-      const phoneRegex = /^\d{10}$/;  // Matches 10-digit numbers without country code
+      // Regular expression to match phone number formats after normalization
+      const phoneRegexes: { [key: string]: RegExp } = {
+          '1': /^\d{10}$/,  // Matches 10-digit US numbers without country code
+          // Add more regions and their regex patterns as needed
+      };
+
+      // Check if the provided region has a corresponding regex pattern
+      if (!phoneRegexes[region]) {
+          throw new Error("Unsupported region");
+      }
+
+      // Use the appropriate regex pattern based on the region
+      const phoneRegex = phoneRegexes[region];
 
       if (!phoneRegex.test(normalizedPhoneNumber)) {
           throw new Error("Invalid phone number format");
       }
 
       // Check if the phone number exists in the database
-      const personRecord = SAMPLE_PHONE_DATABASE.find(person => person.phoneNumber.replace(/[-\s]/g, '') === normalizedPhoneNumber);
+      const personRecord = SAMPLE_PHONE_DATABASE.find(person =>
+          person.region === region && person.phoneNumber.replace(/[-\s]/g, '') === normalizedPhoneNumber
+      );
       if (!personRecord) {
           throw new Error("No match found for provided phone number details");
       }
