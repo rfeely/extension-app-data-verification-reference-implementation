@@ -7,6 +7,7 @@ import { verifyEmail } from '../services/emailVerification.service';
 import { verifyBusinessFEIN } from '../services/businessFeinVerification.service';
 import { verifyPhoneNumber } from '../services/phoneVerification.service';
 import { verifySSN } from '../services/ssnVerification.service';
+import { verifyPostalAddress, verifyTypeaheadPostalAddress } from 'src/services/postalAddressVerification.service';
 import { expressjwt as jwt } from 'express-jwt';
 import { checkSchema } from 'express-validator';
 import {
@@ -15,7 +16,8 @@ import {
   emailBody,
   businessFEINBody,
   phoneNumberBody,
-  ssnBody
+  ssnBody,
+  postalAddressBody
 } from '../validationSchemas/dataVerification';
 import checkValidationErrors from '../middleware/checkValidationErrors';
 import env from '../env';
@@ -88,4 +90,25 @@ dataVerificationRouter.post(
   verifySSN,
 );
 
+dataVerificationRouter.post(
+  Paths.Verify.PostalAddress.Post,
+  jwt({
+    secret: env.JWT_SECRET_KEY,
+    algorithms: ['HS256'],
+  }),
+  checkSchema(postalAddressBody, ['body']),
+  checkValidationErrors,
+  verifyPostalAddress,
+);
+
+dataVerificationRouter.post(
+  Paths.Verify.TypeaheadAddress.Post,
+  jwt({
+    secret: env.JWT_SECRET_KEY,
+    algorithms: ['HS256'],
+  }),
+  checkSchema(postalAddressBody, ['body']),
+  checkValidationErrors,
+  verifyTypeaheadPostalAddress,
+);
 export default dataVerificationRouter;

@@ -155,3 +155,21 @@ Request bodies much match the appropriate [action contract](https://developers.d
     "dateOfBirth": "1975-09-08"
   }
   ```
+
+* [Postal address verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/postal-address-verification#request/) example JSON request body:
+
+  **Note:** "street2" is an optional parameter.
+  ```
+  {
+    "street1": "123 Main St",
+    "street2": "Apt 4B",
+    "locality": "Springfield",
+    "subdivision": "IL",
+    "countryOrRegion": "US",
+    "postalCode": "62701-1234"
+  }
+
+  ```
+  There are two actions required by the postal address data verification extension contract.
+  * Verify.Version1.PostalAddress: This action will return the verified address with a successful response if the request body exactly matches an entry in the sample database.
+  * Typeahead.Version1.PostalAddress: This action will return a list of suggested addresses based on if the sample database contains one or more partial matches to the request body.

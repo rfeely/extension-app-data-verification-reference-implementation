@@ -34,3 +34,12 @@ export const ssnBody: Schema = {
   lastName: { isString: true },
   dateOfBirth: { isString: true }
 };
+
+export const postalAddressBody: Schema = {
+  street1: { isString: true },
+  street2: { isString: true, optional: true },
+  locality: { isString: true },
+  postalCode: { isString: true },
+  countryOrRegion: { isString: true },
+  subdivision: { isString: true }
+};
