@@ -1,12 +1,13 @@
 # Data Verification Extension App Reference Implementation
 ## Introduction
-This reference implementation models six data verification use cases:
+This reference implementation models seven data verification use cases:
 * [Bank account owner verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/bank-account-owner-verification/)
 * [Bank account verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/bank-account-verification/)
 * [Business FEIN verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/business-fein-verification/)
 * [Email address verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/email-address-verification/)
 * [Phone verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/phone-verification/)
 * [SSN verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/ssn-verification/)
+* [Postal address verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/postal-address-verification/)
 
 Each use case corresponds to a separate extension app manifest located in the [manifests](/manifests/) folder of this repository.
 
@@ -156,20 +157,51 @@ Request bodies much match the appropriate [action contract](https://developers.d
   }
   ```
 
-* [Postal address verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/postal-address-verification#request/) example JSON request body:
-
-  **Note:** "street2" is an optional parameter.
-  ```
-  {
-    "street1": "123 Main St",
-    "street2": "Apt 4B",
-    "locality": "Springfield",
-    "subdivision": "IL",
-    "countryOrRegion": "US",
-    "postalCode": "62701-1234"
-  }
-
-  ```
-  There are two actions required by the postal address data verification extension contract.
+* [Postal address verification](https://developers.docusign.com/extension-apps/extension-app-reference/extension-contracts/postal-address-verification#request/) There are two actions required by the postal address data verification extension contract.
   * Verify.Version1.PostalAddress: This action will return the verified address with a successful response if the request body exactly matches an entry in the sample database.
+
+    Example JSON request body:
+
+    **Note:** "street2" is an optional parameter.
+    ```
+    {
+      "street1": "123 Main St",
+      "street2": "Apt 4B",
+      "locality": "Springfield",
+      "subdivision": "IL",
+      "countryOrRegion": "US",
+      "postalCode": "62701-1234"
+    }
+
+    ```
+
   * Typeahead.Version1.PostalAddress: This action will return a list of suggested addresses based on if the sample database contains one or more partial matches to the request body.
+
+    Example JSON request body:
+
+    **Note:** "street2" is an optional parameter.
+
+    ```
+    {
+      "street1": "123 Main St",
+      "street2": "Apt 4B",
+      "locality": "Springfield",
+      "subdivision": "IL",
+      "countryOrRegion": "US",
+      "postalCode": "62701"
+    }
+
+    ```
+    Example JSON response:
+    ```
+    {
+      "suggestions": [{
+        "street1": "123 Main St",
+        "street2": "Apt 4B",
+        "locality": "Springfield",
+        "subdivision": "IL",
+        "countryOrRegion": "US",
+        "postalCode": "62701-1234"
+      }]
+    }
+    ```
