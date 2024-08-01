@@ -21,6 +21,12 @@ const paths = {
     },
     SSN: {
       Post: '/ssn',
+    },
+    PostalAddress: {
+      Post: '/postalAddress',
+    },
+    TypeaheadAddress: {
+      Post: '/typeaheadAddress'
     }
   },
   Auth: {

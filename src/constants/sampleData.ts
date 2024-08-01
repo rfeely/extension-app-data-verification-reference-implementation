@@ -27,3 +27,11 @@ export const SAMPLE_SSN_DATABASE = [
   { socialSecurityNumber: "987-65-4321", firstName: "Theo", lastName: "Clarkson", dateOfBirth: "1998-02-02" },
   { socialSecurityNumber: "111-11-1111", firstName: "Nora", lastName: "Bentley", dateOfBirth: "1975-09-08" }
 ]
+
+export const SAMPLE_POSTAL_ADDRESS_DATABASE = [
+  { street1: "123 Main St", street2: "Apt 4B", locality: "Springfield", subdivision: "IL", countryOrRegion: "US", postalCode: "62701-1234" },
+  { street1: "456 Elm St", street2: "Suite 101", locality: "Metropolis", subdivision: "NY", countryOrRegion: "US", postalCode: "10001-5678" },
+  { street1: "789 Oak St", street2: "Floor 2", locality: "Gotham", subdivision: "NJ", countryOrRegion: "US", postalCode: "07001-2345" },
+  { street1: "321 Pine St", street2: "", locality: "Smallville", subdivision: "KS", countryOrRegion: "US", postalCode: "66002-3456" },
+  { street1: "654 Maple St", street2: "Apt 5C", locality: "Star City", subdivision: "CA", countryOrRegion: "US", postalCode: "90210-7890" }
+];
