@@ -40,7 +40,7 @@ export const verifyPostalAddress = (req: IReq<PostalAddressBody>, res: IRes) => 
       throw new Error('No matching address found. Verification failed.');
     }
   } catch (err) {
-    console.error(`Encountered an error verifying bank account owner: ${err.message}`);
+    console.error(`Encountered an error verifying postal address: ${err.message}`);
     const result: PostalAddressResponse = { verified: false, verifyFailureReason: err.message };
     return res.json(result);
   }
@@ -59,34 +59,20 @@ export const verifyTypeaheadPostalAddress = (req: IReq<PostalAddressBody>, res: 
   } = req;
 
   try {
-    if (!street1 || !locality || !postalCode || !countryOrRegion || !subdivision) {
-      throw new Error("ADDRESS_INCOMPLETE");
-    }
-
     // Mock database lookup
-    const exactMatch = SAMPLE_POSTAL_ADDRESS_DATABASE.find(address =>
-        address.street1.toLowerCase() === street1.toLowerCase() &&
-        address.locality.toLowerCase() === locality.toLowerCase() &&
-        address.subdivision.toUpperCase() === subdivision.toUpperCase() &&
-        address.countryOrRegion.toLowerCase() === countryOrRegion.toLowerCase() &&
-        address.postalCode === postalCode
+     // Check for partial matches
+     const suggestions = SAMPLE_POSTAL_ADDRESS_DATABASE.filter(address =>
+      address.street1.toLowerCase().includes(street1.toLowerCase()) &&
+      address.locality.toLowerCase().includes(locality.toLowerCase()) &&
+      address.subdivision.toUpperCase().includes(subdivision.toUpperCase()) &&
+      address.countryOrRegion.toLowerCase().includes(countryOrRegion.toLowerCase()) &&
+      address.postalCode.includes(postalCode)
     );
 
-    if (exactMatch) {
-      if (street2 && (!exactMatch.street2 || exactMatch.street2.toLowerCase() !== street2.toLowerCase())) {
-        throw new Error("MISSING_OR_WRONG_SECONDARY_INFORMATION");
-      }
-      return res.json({ suggestions: [exactMatch] });
+    // Check street2 for partial matches
+    if (suggestions.some(address => (address.street2 && !street2) || (street2 && address.street2.toLowerCase() !== street2.toLowerCase()))) {
+      throw new Error("MISSING_OR_WRONG_SECONDARY_INFORMATION");
     }
-
-    // Check for partial matches
-    const suggestions = SAMPLE_POSTAL_ADDRESS_DATABASE.filter(address =>
-        address.street1.toLowerCase().includes(street1.toLowerCase()) &&
-        address.locality.toLowerCase() === locality.toLowerCase() &&
-        address.subdivision.toUpperCase() === subdivision.toUpperCase() &&
-        address.countryOrRegion.toLowerCase() === countryOrRegion.toLowerCase() &&
-        address.postalCode === postalCode
-    );
 
     if (suggestions.length) {
       return res.json({ suggestions });
@@ -94,7 +80,7 @@ export const verifyTypeaheadPostalAddress = (req: IReq<PostalAddressBody>, res: 
       throw new Error("ADDRESS_NOT_FOUND");
     }
   } catch (err) {
-    console.log(`Encountered an error verifying postal address: ${err.message}`);
+    console.log(`Encountered an error finding a postal address suggestion: ${err.message}`);
     const failureReason = err.message;
     return res.json({ failureReason });
   }

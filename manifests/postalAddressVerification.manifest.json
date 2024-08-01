@@ -48,14 +48,14 @@
       "description": "Verify postal address",
       "template": "Verify.Version1.PostalAddress",
       "actionReferences": [
-        "My Postal Address Verification Action",
-        "My Postal Address Typeahead Verification Action"
+        "postal-address-verify",
+        "postal-address-suggestion"
       ]
     }
   ],
   "actions": [
     {
-      "name": "My Postal Address Verification Action",
+      "name": "postal-address-verify",
       "description": "Verify postal address with a proxy",
       "template": "Verify.Version1.PostalAddress",
       "connectionsReference": "authentication",
@@ -64,7 +64,7 @@
       }
     },
     {
-      "name": "My Postal Address Typeahead Verification Action",
+      "name": "postal-address-suggestion",
       "description": "Provide typeahead suggestions and verify postal address with a proxy",
       "template": "Typeahead.Version1.PostalAddress",
       "connectionsReference": "authentication",
