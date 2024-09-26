@@ -25,7 +25,7 @@ git clone https://github.com/docusign/extension-app-data-verification-reference-
 
 The easiest way to generate a secret value is to run the following command:
 ```bash
-node -e "console.log(require('crypto').randomBytes(128).toString('base64'));"
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'));"
 ```
 
 You will need values for `JWT_SECRET_KEY`, `OAUTH_CLIENT_ID`, `OAUTH_CLIENT_SECRET`, and `AUTHORIZATION_CODE`.
