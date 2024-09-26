@@ -60,5 +60,9 @@
         "uri": "<PROXY_BASE_URL>/api/verify/bankAccount"
       }
     }
-  ]
+  ],
+  "publicationRegions": [
+    "US"
+  ],
+  "distribution": "PUBLIC"
 }
