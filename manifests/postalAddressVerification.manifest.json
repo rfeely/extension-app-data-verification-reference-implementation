@@ -72,5 +72,9 @@
         "uri": "<PROXY_BASE_URL>/api/verify/typeaheadAddress"
       }
     }
-  ]
+  ],
+  "publicationRegions": [
+    "US"
+  ],
+  "distribution": "PUBLIC"
 }

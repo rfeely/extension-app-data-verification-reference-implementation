@@ -1,5 +1,5 @@
 {
-  "name": "Bank Account Owner Verification App",
+  "name": "Account Owner Verification App",
   "description": {
     "short": "App for bank account owner verification",
     "long": "This app is designed to allow for users to verify bank account owner data"
@@ -60,5 +60,9 @@
         "uri": "<PROXY_BASE_URL>/api/verify/bankAccountOwner"
       }
     }
-  ]
+  ],
+  "publicationRegions": [
+    "US"
+  ],
+  "distribution": "PUBLIC"
 }

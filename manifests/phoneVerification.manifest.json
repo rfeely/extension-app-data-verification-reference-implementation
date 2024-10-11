@@ -60,5 +60,9 @@
         "uri": "<PROXY_BASE_URL>/api/verify/phone"
       }
     }
-  ]
+  ],
+  "publicationRegions": [
+    "US"
+  ],
+  "distribution": "PUBLIC"
 }
