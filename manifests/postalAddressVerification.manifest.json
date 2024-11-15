@@ -1,5 +1,5 @@
 {
-  "name": "Postal Address Verification",
+  "name": "Ronan Postal Address Verification",
   "description": {
     "short": "App for postal address verification",
     "long": "This app is designed to allow for users to verify postal addresses"
@@ -29,8 +29,8 @@
         "clientId": "7e800b8372f5d60c1d55b4e1c657bbcab9d62694abb96d748a78eb79d064902785d0cd0109bd5a79e0289b6f05944a9e67a06098278f3c88482ad810c8278eb2",
         "clientSecret": "cb90a32ca2084b04fb0dab681ec0bfa26940308a7cdc32156defb524dc9e8f9408cb574a723fed5beb50f5692a17f044f1330d892f1a523830f0b7d3728481c0",
         "customConfig": {
-          "tokenUrl": "3a29-172-166-156-161.ngrok-free.app/api/oauth/token",
-          "authorizationUrl": "3a29-172-166-156-161.ngrok-free.app/api/oauth/authorize",
+          "tokenUrl": "https://3a29-172-166-156-161.ngrok-free.app/api/oauth/token",
+          "authorizationUrl": "https://3a29-172-166-156-161.ngrok-free.app/api/oauth/authorize",
           "authorizationParams": {
             "access_type": "offline",
             "prompt": "consent"
@@ -60,7 +60,7 @@
       "template": "Verify.Version1.PostalAddress",
       "connectionsReference": "authentication",
       "params": {
-        "uri": "3a29-172-166-156-161.ngrok-free.app/api/verify/postalAddress"
+        "uri": "https://3a29-172-166-156-161.ngrok-free.app/api/verify/postalAddress"
       }
     },
     {
@@ -69,7 +69,7 @@
       "template": "Typeahead.Version1.PostalAddress",
       "connectionsReference": "authentication",
       "params": {
-        "uri": "3a29-172-166-156-161.ngrok-free.app/api/verify/typeaheadAddress"
+        "uri": "https://3a29-172-166-156-161.ngrok-free.app/api/verify/typeaheadAddress"
       }
     }
   ],
